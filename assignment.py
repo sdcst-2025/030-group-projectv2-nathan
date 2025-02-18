@@ -38,63 +38,105 @@ def instructions():
 
     return None
 
+
 def vsphere():
-    r = float(input("Enter a value for the radius of a sphere: "))
-    if r <= 0:
-        print('radius has to be postive!!!')
-        return
-    v = math.pi*(4/3)*(r**3)
-    vr = round(v,2)
-    print(f"The volume of a sphere with a radius of {r} is {vr}!")
+    while True:
+        r = input("Enter a value for the radius of a sphere: ")
+        try:
+            r = float(r)
+            if r <= 0:
+                print("The radius must be a positive number.")
+                continue
+        except ValueError:
+            print("Invalid input, must be a positive number.")
+            continue
+        v = math.pi * (4/3) * (r**3)
+        vr = round(v, 2)
+        print(f"The volume of a sphere with a radius of {r} is {vr}!")
+        break
+        
+    
+                
+            
 
 def vcylinder():
-    r = float(input("Enter a value for the radius of the cylinder: "))
-    if r <= 0:
-        print('radius has to be postive!!!')
-        return
-    h = float(input("Enter the height of the cylinder: "))
-    if h <= 0:
-        print('height has to be postive!!!')
-        return
-    v = math.pi*(r**2)*(h)
-    vr = round(v,2)
-    print(f"The volume of a cylinder with height of {h} and a radius of {r} is {vr}!")
+    while True:
+        r = input("Enter a value for the radius of the cylinder: ")
+        h = input("Enter the height of the cylinder: ")
+        try:
+            r = float(r)
+            h = float(h)
+            if r <= 0 or h <= 0:
+                print("The values must be positive numbers.")
+                continue
+        except ValueError:
+            print("Invalid input, must be a positive number.")
+            continue
+        v = math.pi*(r**2)*(h)
+        vr = round(v,2)
+        print(f"The volume of a cylinder with height of {h} and a radius of {r} is {vr}!")
+        break
 
 def vcone():
-    r = float(input("Enter the value for the radius of a cone: "))
-    if r <= 0:
-        print('radius has to be postive!!!')
-        return
-    h = float(input("Enter the height of the cone: "))
-    if h <= 0:
-        print('height has to be postive!!!')
-        return
-    v = (math.pi/3)*(r**2)*(h)
-    vr = round(v,2)
-    print(f"The volume of a cone with height of {h} and radius of {r} is {vr}!")
+    while True:
+        r = input("Enter the value for the radius of a cone: ")
+        h = input("Enter the height of the cone: ")
+        try:
+            r = float(r)
+            h = float(h)
+            if r <= 0 or h <= 0:
+                print("The values must be positive numbers.")
+                continue
+        except ValueError:
+            print("Invalid input, must be a positive number.")
+            continue
+        v = (math.pi/3)*(r**2)*(h)
+        vr = round(v,2)
+        print(f"The volume of a cone with height of {h} and radius of {r} is {vr}!")
+        break
 
 def sacylinder():
-    r = float(input("Enter the radius of the cylinder: "))
-    if r <= 0:
-        print('radius has to be postive!!!')
-        return
-    h = float(input("Enter the height of the cylinder: " ))
-    if h <= 0:
-        print('height has to be postive!!!')
-        return
-    sa = (2*math.pi*r*h) + (2*math.pi)*(r**2)
-    sar = round(sa,2)
-    print(f"The surface area of a cylinder with radius of {r} and height of {h} is {sar}!")
+    while True:
+        r = input("Enter the radius of the cylinder: ")
+        h = input("Enter the height of the cylinder: " )
+        try:
+            r = float(r)
+            h = float(h)
+            if r <= 0 or h <= 0:
+                print("The values must be  positive numbers.")
+                continue
+        except ValueError:
+            print("Invalid input, must be a positive number.")
+            continue
+        sa = (2*math.pi*r*h) + (2*math.pi)*(r**2)
+        sar = round(sa,2)
+        print(f"The surface area of a cylinder with radius of {r} and height of {h} is {sar}!")
+        break
 
 def acircle():
-    r = float(input("Enter a value for the radius of a circle"))
-    if r <= 0:
-        print('radius has to be postive!!!')
-        return
-    a = (math.pi)*(r**2)
-    ar = round(a,2)
-    print(f"The area of a circle with a radius of {r} is {ar}")
+    while True:
+        r = input("Enter a value for the radius of a circle")
+        try:
+            r = float(r)
+            if r <= 0:
+                print("The radius must be a positive number.")
+                continue
+        except ValueError:
+            print("Invalid input, must be a positive number.")
+            continue
+        a = (math.pi)*(r**2)
+        ar = round(a,2)
+        print(f"The area of a circle with a radius of {r} is {ar}")
+        break
 
+def instr():
+    print("---------------------------------------------")
+    print(" type 'a' for volume of a sphere")
+    print(" type 'b' for volume of a cylinder")
+    print(" type 'c' for volume of a cone")
+    print(" type 'd' for area of a circle")
+    print(" type 'e' for surface area of a cylinder")
+    print("---------------------------------------------")
 
 def main():
     """
@@ -105,6 +147,7 @@ def main():
     title()
     instructions()
     while True:
+        instr()
         x = input("What calculation would u like to run? (refer to the instructions at top): ")
         if x == 'a':
             vsphere()
